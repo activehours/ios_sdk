@@ -239,7 +239,7 @@ Add call to `trackSubsessionEnd` inside of `willResignActiveWithConversation:` m
     // Called when the extension is about to move from the active to inactive state.
     // This will happen when the user dissmises the extension, changes to a different
     // conversation or quits Messages.
-    
+
     // Use this method to release shared resources, save user data, invalidate timers,
     // and store enough state information to restore your extension to its current state
     // in case it is terminated later.
@@ -619,9 +619,9 @@ Currently we support the below `source` parameter values:
 
 ### <a id="subscriptions"></a>Subscription tracking
 
-**Note**: This feature is only available in the native SDK v4.22.0 and above. We recommend using at least version 4.22.1. 
+**Note**: This feature is only available in the native SDK v4.22.0 and above. We recommend using at least version 4.22.1.
 
-**Important**: The following steps only set up subscription tracking within the SDK. To complete setup, certain app-specific information must be added within Adjust’s internal interface. An Adjust representative must take this action: please contact support@adjust.com or your Technical Account Manager. 
+**Important**: The following steps only set up subscription tracking within the SDK. To complete setup, certain app-specific information must be added within Adjust’s internal interface. An Adjust representative must take this action: please contact support@adjust.com or your Technical Account Manager.
 
 You can track App Store subscriptions and verify their validity with the Adjust SDK. After a subscription has been successfully purchased, make the following call to the Adjust SDK:
 
@@ -1012,7 +1012,7 @@ The call to `appWillOpenUrl` should be done like this to support deep linking re
 ```objc
 - (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary *)options {
     // url object contains your deep link content
-    
+
     [Adjust appWillOpenUrl:url];
 
     // Apply your logic to determine the return value of this method

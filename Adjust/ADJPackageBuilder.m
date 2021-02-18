@@ -130,7 +130,7 @@ NSString * const ADJAttributionTokenParameter = @"attribution_token";
                           errorCodeNumber:(NSNumber *)errorCodeNumber {
 
     NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
-    
+
     if (token != nil) {
         [ADJPackageBuilder parameters:parameters
                             setString:token
@@ -141,7 +141,7 @@ NSString * const ADJAttributionTokenParameter = @"attribution_token";
                                setInt:errorCodeNumber.intValue
                                forKey:@"error_code"];
     }
-    
+
     return [self buildClickPackage:clickSource extraParameters:parameters];
 }
 
@@ -150,7 +150,7 @@ NSString * const ADJAttributionTokenParameter = @"attribution_token";
     if (extraParameters != nil) {
         [parameters addEntriesFromDictionary:extraParameters];
     }
-    
+
     if ([clickSource isEqualToString:ADJiAdPackageKey]) {
         // send iAd errors in the parameters
         NSDictionary<NSString *, NSNumber *> *iAdErrors = [ADJUserDefaults getiAdErrors];
@@ -160,7 +160,7 @@ NSString * const ADJAttributionTokenParameter = @"attribution_token";
             parameters[@"iad_errors"] = jsonStr;
         }
     }
-    
+
     ADJActivityPackage *clickPackage = [self defaultActivityPackage];
     clickPackage.path = @"/sdk_click";
     clickPackage.activityKind = ADJActivityKindClick;
@@ -451,7 +451,7 @@ NSString * const ADJAttributionTokenParameter = @"attribution_token";
     [ADJPackageBuilder parameters:parameters setString:self.deviceInfo.systemVersion forKey:@"os_version"];
     [ADJPackageBuilder parameters:parameters setNumber:event.revenue forKey:@"revenue"];
     [ADJPackageBuilder parameters:parameters setString:self.adjustConfig.secretId forKey:@"secret_id"];
-    
+
     if ([self.trackingStatusManager canGetAttStatus]) {
         [ADJPackageBuilder parameters:parameters setInt:self.trackingStatusManager.attStatus
                                forKey:@"att_status"];
@@ -555,7 +555,7 @@ NSString * const ADJAttributionTokenParameter = @"attribution_token";
     [ADJPackageBuilder parameters:parameters setDate:self.purchaseTime forKey:@"purchase_time"];
     [ADJPackageBuilder parameters:parameters setString:self.adjustConfig.secretId forKey:@"secret_id"];
     [ADJPackageBuilder parameters:parameters setString:source forKey:@"source"];
-    
+
     if ([self.trackingStatusManager canGetAttStatus]) {
         [ADJPackageBuilder parameters:parameters setInt:self.trackingStatusManager.attStatus
                                forKey:@"att_status"];
@@ -637,7 +637,7 @@ NSString * const ADJAttributionTokenParameter = @"attribution_token";
     [ADJPackageBuilder parameters:parameters setString:self.adjustConfig.secretId forKey:@"secret_id"];
     [ADJPackageBuilder parameters:parameters setString:source forKey:@"source"];
     [ADJPackageBuilder parameters:parameters setData:payload forKey:@"payload"];
-    
+
     if ([self.trackingStatusManager canGetAttStatus]) {
         [ADJPackageBuilder parameters:parameters setInt:self.trackingStatusManager.attStatus
                                forKey:@"att_status"];
@@ -720,7 +720,7 @@ NSString * const ADJAttributionTokenParameter = @"attribution_token";
     [ADJPackageBuilder parameters:parameters setDate:self.purchaseTime forKey:@"purchase_time"];
     [ADJPackageBuilder parameters:parameters setString:self.adjustConfig.secretId forKey:@"secret_id"];
     [ADJPackageBuilder parameters:parameters setString:source forKey:@"source"];
-    
+
     if ([self.trackingStatusManager canGetAttStatus]) {
         [ADJPackageBuilder parameters:parameters setInt:self.trackingStatusManager.attStatus
                                forKey:@"att_status"];
@@ -800,7 +800,7 @@ NSString * const ADJAttributionTokenParameter = @"attribution_token";
     if (self.adjustConfig.needsCost) {
         [ADJPackageBuilder parameters:parameters setBool:self.adjustConfig.needsCost forKey:@"needs_cost"];
     }
-    
+
     if ([self.trackingStatusManager canGetAttStatus]) {
         [ADJPackageBuilder parameters:parameters setInt:self.trackingStatusManager.attStatus
                                forKey:@"att_status"];
@@ -853,7 +853,7 @@ NSString * const ADJAttributionTokenParameter = @"attribution_token";
     if (self.adjustConfig.needsCost) {
         [ADJPackageBuilder parameters:parameters setBool:self.adjustConfig.needsCost forKey:@"needs_cost"];
     }
-    
+
     if ([self.trackingStatusManager canGetAttStatus]) {
         [ADJPackageBuilder parameters:parameters setInt:self.trackingStatusManager.attStatus
                                forKey:@"att_status"];
@@ -915,7 +915,7 @@ NSString * const ADJAttributionTokenParameter = @"attribution_token";
     [ADJPackageBuilder parameters:parameters setDictionary:[self.sessionParameters.partnerParameters copy] forKey:@"partner_params"];
     [ADJPackageBuilder parameters:parameters setDate:self.purchaseTime forKey:@"purchase_time"];
     [ADJPackageBuilder parameters:parameters setString:self.adjustConfig.secretId forKey:@"secret_id"];
-    
+
     if ([self.trackingStatusManager canGetAttStatus]) {
         [ADJPackageBuilder parameters:parameters setInt:self.trackingStatusManager.attStatus
                                forKey:@"att_status"];
@@ -930,7 +930,7 @@ NSString * const ADJAttributionTokenParameter = @"attribution_token";
     if (self.adjustConfig.needsCost) {
         [ADJPackageBuilder parameters:parameters setBool:self.adjustConfig.needsCost forKey:@"needs_cost"];
     }
-    
+
     if (self.activityState != nil) {
         [ADJPackageBuilder parameters:parameters setDuration:self.activityState.lastInterval forKey:@"last_interval"];
         [ADJPackageBuilder parameters:parameters setString:self.activityState.deviceToken forKey:@"push_token"];
@@ -1156,7 +1156,7 @@ NSString * const ADJAttributionTokenParameter = @"attribution_token";
     [ADJPackageBuilder parameters:parameters setString:self.deviceInfo.osName forKey:@"os_name"];
     [ADJPackageBuilder parameters:parameters setString:self.deviceInfo.systemVersion forKey:@"os_version"];
     [ADJPackageBuilder parameters:parameters setString:self.adjustConfig.secretId forKey:@"secret_id"];
-    
+
     if ([self.trackingStatusManager canGetAttStatus]) {
         [ADJPackageBuilder parameters:parameters setInt:self.trackingStatusManager.attStatus
                                forKey:@"att_status"];
@@ -1196,7 +1196,7 @@ NSString * const ADJAttributionTokenParameter = @"attribution_token";
         [ADJPackageBuilder parameters:parameters setDictionary:mergedCallbackParameters forKey:@"callback_params"];
         [ADJPackageBuilder parameters:parameters setDictionary:mergedPartnerParameters forKey:@"partner_params"];
     }
-    
+
     [ADJPackageBuilder parameters:parameters setNumber:subscription.price forKey:@"revenue"];
     [ADJPackageBuilder parameters:parameters setString:subscription.currency forKey:@"currency"];
     [ADJPackageBuilder parameters:parameters setString:subscription.transactionId forKey:@"transaction_id"];

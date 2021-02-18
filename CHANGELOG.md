@@ -448,7 +448,7 @@
 - Accessing private properties directly when copying.
 - Removed static framework build with no Bitcode support from releases page.
 - Updated docs.
- 
+
 #### Fixed
 - Allow foreground/background timer to work in offline mode.
 - Use `synchronized` blocks to prevent write deadlock/contention.
@@ -492,7 +492,7 @@
 ---
 
 ### Version 4.8.0 (25th July 2016)
-#### Added 
+#### Added
 - Added tracking support for native web apps (no SDK version change).
 
 ### Changed
@@ -501,7 +501,7 @@
 ---
 
 ### Version 4.8.0 (18th July 2016)
-#### Added 
+#### Added
 - Added `sendAdWordsRequest` method on `Adjust` instance to support AdWords Search and Mobile Web tracking.
 
 ---

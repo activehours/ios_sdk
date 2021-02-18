@@ -134,14 +134,14 @@ static NSString * const kDateFormat                 = @"yyyy-MM-dd'T'HH:mm:ss.SS
 #if !TARGET_OS_TV && !TARGET_OS_MACCATALYST
 + (void)initializeNetworkInfoAndCarrier {
     networkInfo = [[CTTelephonyNetworkInfo alloc] init];
-    
+
     if (@available(iOS 12.0, *)) {
         NSString *currentRadioAccess = networkInfo.serviceCurrentRadioAccessTechnology.allKeys.firstObject;
         if (currentRadioAccess) {
             carrier = networkInfo.serviceSubscriberCellularProviders[currentRadioAccess];
         }
     }
-    
+
     if (!carrier) {
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wdeprecated-declarations"
@@ -661,7 +661,7 @@ static NSString * const kDateFormat                 = @"yyyy-MM-dd'T'HH:mm:ss.SS
             afterRedirect = [afterRedirect substringFromIndex:1];
         }
     }
-    
+
     NSString *removedRedirect = [NSString stringWithFormat:@"%@%@", beforeRedirect, afterRedirect];
     return removedRedirect;
 }
@@ -1098,17 +1098,17 @@ static NSString * const kDateFormat                 = @"yyyy-MM-dd'T'HH:mm:ss.SS
 
 + (void)updateSkAdNetworkConversionValue:(NSNumber *)conversionValue {
     id<ADJLogger> logger = [ADJAdjustFactory logger];
-    
+
     Class skAdNetwork = NSClassFromString(@"SKAdNetwork");
     if (skAdNetwork == nil) {
         [logger warn:@"StoreKit framework not found in user's app (SKAdNetwork not found)"];
         return;
     }
-    
+
     SEL updateConversionValueSelector = NSSelectorFromString(@"updateConversionValue:");
     if ([skAdNetwork respondsToSelector:updateConversionValueSelector]) {
         NSInteger intValue = [conversionValue integerValue];
-        
+
         NSMethodSignature *conversionValueMethodSignature = [skAdNetwork methodSignatureForSelector:updateConversionValueSelector];
         NSInvocation *conversionInvocation = [NSInvocation invocationWithMethodSignature:conversionValueMethodSignature];
         [conversionInvocation setSelector:updateConversionValueSelector];
@@ -1116,7 +1116,7 @@ static NSString * const kDateFormat                 = @"yyyy-MM-dd'T'HH:mm:ss.SS
 
         [conversionInvocation setArgument:&intValue atIndex:2];
         [conversionInvocation invoke];
-        
+
         [logger verbose:@"Call to SKAdNetwork's updateConversionValue: method made with value %d", intValue];
     }
 }

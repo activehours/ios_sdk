@@ -43,7 +43,7 @@ static NSString * const ADJMethodPOST = @"MethodPOST";
                 requestTimeout:(double)requestTimeout
 {
     self = [super init];
-    
+
     if (self == nil) {
         return nil;
     }

@@ -223,7 +223,7 @@ NSString *environment = ADJEnvironmentProduction;
     // Called when the extension is about to move from the active to inactive state.
     // This will happen when the user dissmises the extension, changes to a different
     // conversation or quits Messages.
-    
+
     // Use this method to release shared resources, save user data, invalidate timers,
     // and store enough state information to restore your extension to its current state
     // in case it is terminated later.
@@ -329,7 +329,7 @@ ADJConfig *adjustConfig = [ADJConfig configWithAppToken:yourAppToken
 
 ### <a id="skadn-framework"></a>SKAdNetwork 框架
 
-如果您已经安装了 Adjust iOS SDK v4.23.0 或更新版本，且您的应用在 iOS 14 端运行，那么与 SKAdNetwork 之间的通讯会默认启用，但您可以自行禁用通讯。启用状态下，Adjust 会在 SDK 初始化时自动注册 SKAdNetwork 归因。如果您在 Adjust 控制面板中对事件进行了接收转化值设置，那么 Adjust 后端就会将转化值数据发送给 SDK。然后 SDK 会设定转化值。Adjust 收到 SKAdNetwork 回传数据后，会在控制面板中予以显示。 
+如果您已经安装了 Adjust iOS SDK v4.23.0 或更新版本，且您的应用在 iOS 14 端运行，那么与 SKAdNetwork 之间的通讯会默认启用，但您可以自行禁用通讯。启用状态下，Adjust 会在 SDK 初始化时自动注册 SKAdNetwork 归因。如果您在 Adjust 控制面板中对事件进行了接收转化值设置，那么 Adjust 后端就会将转化值数据发送给 SDK。然后 SDK 会设定转化值。Adjust 收到 SKAdNetwork 回传数据后，会在控制面板中予以显示。
 
 如果您不希望 Adjust SDK 自动与 SKAdNetwork 通讯，可以针对配置对象调用如下方法：
 
@@ -876,7 +876,7 @@ Adjust支持您使用深度链接进行再参与推广活动。请查看我们�
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url
   sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
     // url object contains your deep link content
-    
+
     [Adjust appWillOpenUrl:url];
 
     // Apply your logic to determine the return value of this method
@@ -996,7 +996,7 @@ http://app.adjust.com/forget_device?app_token={yourAppToken}&idfa={idfaValue}
 
 当设备被忘记，链接仅返回`Forgot device`（忘记设备）。如果设备之前已经被忘记或出现错误值，链接将返回`Device not found`（未找到设备）。
 
-### <a id="ts-install-tracked">日志未显示 "Install tracked" 
+### <a id="ts-install-tracked">日志未显示 "Install tracked"
 
 如果您希望在测试设备上模拟应用的安装场景，仅仅在您的测试设备上重新运行Xcode开发的应用是不够的。重新运行Xcode开发的应用不会清除应用数据，SDK保存在您的应用中的所有内部数据仍然会存在。因此在重新运行时，我们的SDK将会看到这些文件并认为您的应用已被安装（SDK已被启用），应用只是又一次被打开，而不是第一次。
 

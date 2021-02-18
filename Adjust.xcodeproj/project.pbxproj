@@ -2643,6 +2643,7 @@
 				969952D21A01309200928462 /* ADJAttribution.m in Sources */,
 				960A8BB91A029A8000F2BB95 /* ADJConfig.m in Sources */,
 				96854A5A1B1F2779002B2874 /* ADJTimerOnce.m in Sources */,
+				6FBEE8F524E2C26F00FEF3F1 /* ADJUrlStrategy.m in Sources */,
 				96854A601B1F278C002B2874 /* ADJTimerCycle.m in Sources */,
 				96FCC53B1C186426007BBFE1 /* ADJResponseData.m in Sources */,
 				968173841C3C2D07002AE1DE /* ADJSessionSuccess.m in Sources */,

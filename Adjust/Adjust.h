@@ -294,6 +294,15 @@ extern NSString * __nonnull const ADJUrlStrategyChina;
 + (void)updateConversionValue:(NSInteger)conversionValue;
 
 /**
+ * @brief Track subscription.
+ *
+ * @param subscription Subscription object.
+ */
++ (void)trackSubscription:(nonnull ADJSubscription *)subscription;
+
++ (void)requestTrackingAuthorizationWithCompletionHandler:(void (^_Nullable)(NSUInteger status))completion;
+
+/**
  * Obtain singleton Adjust object.
  */
 + (nullable id)getInstance;
